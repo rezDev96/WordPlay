@@ -60,7 +60,7 @@ function init(){
   // Call countdowm every second
   setInterval(countdown, 1000);
   // check game status
-  setInterval(checkStatus, 50);
+  setInterval(checkStatus, 3000);
 }
 
 // Pick & show random word
@@ -83,10 +83,12 @@ function startMatch(){
 
   if(score === -1){
     scoreDisplay.innerHTML = 0;
-  } else
-  scoreDisplay.innerHTML = score;
+  } else{
+    scoreDisplay.innerHTML = score;
+  }
 }
 
+// If words match
 function matchWords(){
   if(wordInput.value === currentWord.innerHTML){
     message.innerHTML = 'Correct';
