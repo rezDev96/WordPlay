@@ -47,7 +47,14 @@ const words = [
   'definition',
   'why',
   'html',
-  'css'
+  'css',
+  'repository',
+  'api',
+  'jquery',
+  'react',
+  'angular',
+  'bootstrap',
+  'input'
 ];
 
 function init(){
