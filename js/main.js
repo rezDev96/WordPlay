@@ -2,9 +2,9 @@ window.addEventListener('load', init);
 
 // Global variables
 const levels = {
-  easy: 5,
-  medium: 3,
-  hard: 2
+  easy: 6,
+  medium: 4,
+  hard: 3
 };
 let currentLevel = levels.easy;
 let time = currentLevel;
@@ -18,6 +18,9 @@ const scoreDisplay = document.querySelector('#score');
 const timeDisplay = document.querySelector('#time');
 const message = document.querySelector('#message');
 const seconds = document.querySelector('#seconds');
+const easy = document.querySelector('#easyBtn');
+const medium = document.querySelector('#mediumBtn');
+const hard = document.querySelector('#hardBtn');
 
 const words = [
   'hat',
@@ -54,12 +57,17 @@ const words = [
   'react',
   'angular',
   'bootstrap',
-  'input'
+  'input',
+  'wordplay',
+  'node',
+  'express',
+  'vanilla',
+  'operation'
 ];
 
 function init(){
   // Show number of seconds in UI
-  seconds.innerHTML = currentLevel;
+  seconds.innerHTML = currentLevel-=1;
   // Load word from array
   showWord(words);
   // Start matching on word input
@@ -125,3 +133,28 @@ function checkStatus(){
     score = -1;
   }
 }
+
+// Resets the game when a button is selected
+function resetGame(){
+  time = currentLevel;
+  seconds.innerHTML = currentLevel-=1;
+  showWord(words);
+  score = 0;
+  scoreDisplay.innerHTML = score;
+  wordInput.focus();
+}
+// Event listeners for buttons
+easy.addEventListener('click', function(){
+  currentLevel = levels.easy;
+  resetGame();
+});
+
+medium.addEventListener('click', function(){
+  currentLevel = levels.medium;
+  resetGame();
+});
+
+hard.addEventListener('click', function(){
+  currentLevel = levels.hard;
+  resetGame();
+})
